@@ -1,0 +1,44 @@
+#include<stdio.h>
+int main() {
+FILE *fp;
+
+fp = fopen("Feedback.txt","w");
+if (fp == NULL) {
+printf("invalid file\n");
+return 0;
+		 }
+fprintf(fp,"feedback of C Programming\n");
+fprintf(fp,"1.it is very difficult for me to learn\n");
+fprintf(fp,"2.Generally learning complete C Programming takes 6 months.But you forcing us to complete it in 3 months\n");
+fprintf(fp,"3.Now I understant c programming language.but i also have some doubts\n");
+fprintf(fp,"4.It is interesting to learn\n");
+fprintf(fp,"5.this C programming classes are okay for me\n");
+fclose(fp);
+
+fp= fopen("Feedback.txt","a");
+if(fp==NULL){
+printf("File cannot be opened\n");
+return 0;
+	   }
+fprintf(fp,"c-sir feedback\n");
+fprintf(fp,"1.He teach well\n");
+fprintf(fp,"2.He is friendly to everyone\n");
+fprintf(fp,"3.He clear my doubt clearly\n");
+fprintf(fp,"4.He push us to train leetcode and gihub projects\n");
+fprintf(fp,"5.He is a good sir\n");
+fclose(fp);
+{
+char buffer[1000];
+fp= fopen("Feedback.txt","r");
+if(fp==NULL)    {
+printf("File cannot be opened\n");
+return 0;
+}
+while(fgets(buffer,sizeof(buffer), fp) !=NULL)
+{
+printf("%s",buffer);
+}
+fclose(fp);
+return 0;
+}
+}
